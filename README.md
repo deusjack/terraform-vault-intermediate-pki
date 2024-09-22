@@ -54,5 +54,6 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_backend"></a> [backend](#output\_backend) | n/a |
+| <a name="output_certificate"></a> [certificate](#output\_certificate) | n/a |
 | <a name="output_default_issuer"></a> [default\_issuer](#output\_default\_issuer) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
