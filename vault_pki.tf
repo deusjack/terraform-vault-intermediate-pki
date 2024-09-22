@@ -28,10 +28,6 @@ resource "vault_pki_secret_backend_root_sign_intermediate" "pki" {
   organization = vault_pki_secret_backend_intermediate_cert_request.pki.organization
   csr          = vault_pki_secret_backend_intermediate_cert_request.pki.csr
   format       = "pem_bundle"
-  issuer_ref   = var.root_issuer_id
-  lifecycle {
-    replace_triggered_by = [null_resource.triggers]
-  }
 }
 
 resource "vault_pki_secret_backend_intermediate_set_signed" "pki" {
@@ -42,12 +38,6 @@ resource "vault_pki_secret_backend_intermediate_set_signed" "pki" {
 resource "vault_pki_secret_backend_issuer" "pki" {
   backend    = vault_mount.pki.path
   issuer_ref = vault_pki_secret_backend_intermediate_set_signed.pki.imported_issuers[0]
-}
-
-resource "vault_pki_secret_backend_config_issuers" "pki" {
-  backend                       = vault_mount.pki.path
-  default                       = vault_pki_secret_backend_issuer.pki.issuer_id
-  default_follows_latest_issuer = false
 }
 
 resource "vault_pki_secret_backend_config_urls" "pki" {

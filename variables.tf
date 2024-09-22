@@ -36,11 +36,6 @@ variable "root_backend" {
   description = "Mount path of the root pki"
 }
 
-variable "root_issuer_id" {
-  type        = string
-  description = "Issuer ID of the root pki"
-}
-
 variable "vault_base_url" {
   type        = string
   description = "Example: https://vault.example.com:8200"

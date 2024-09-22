@@ -1,6 +1,16 @@
 # module-vault-intermediate-pki
 
-Terraform module to create intermediate PKI on Vault cluster
+Terraform module to create intermediate PKI on Hashicorp Vault
+
+## Requirements/Assumptions
+
+* Other Vault PKI
+* Either:
+  * Other PKI set up like this module
+  * Root PKI with self-signed cert setup
+  * Root PKI with imported CA and set as default
+
+# Terradocs
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
@@ -14,7 +24,6 @@ Terraform module to create intermediate PKI on Vault cluster
 
 | Name | Version |
 |------|---------|
-| <a name="provider_null"></a> [null](#provider\_null) | 3.2.3 |
 | <a name="provider_vault"></a> [vault](#provider\_vault) | 4.4.0 |
 
 ## Modules
@@ -25,9 +34,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [null_resource.triggers](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 | [vault_mount.pki](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/mount) | resource |
-| [vault_pki_secret_backend_config_issuers.pki](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/pki_secret_backend_config_issuers) | resource |
 | [vault_pki_secret_backend_config_urls.pki](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/pki_secret_backend_config_urls) | resource |
 | [vault_pki_secret_backend_intermediate_cert_request.pki](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/pki_secret_backend_intermediate_cert_request) | resource |
 | [vault_pki_secret_backend_intermediate_set_signed.pki](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/pki_secret_backend_intermediate_set_signed) | resource |
@@ -46,7 +53,6 @@ No modules.
 | <a name="input_organisation"></a> [organisation](#input\_organisation) | The Organisation for the CA | `string` | `"Hashicorp Cluster"` | no |
 | <a name="input_path"></a> [path](#input\_path) | The mount path for the PKI | `string` | n/a | yes |
 | <a name="input_root_backend"></a> [root\_backend](#input\_root\_backend) | Mount path of the root pki | `string` | n/a | yes |
-| <a name="input_root_issuer_id"></a> [root\_issuer\_id](#input\_root\_issuer\_id) | Issuer ID of the root pki | `string` | n/a | yes |
 | <a name="input_vault_base_url"></a> [vault\_base\_url](#input\_vault\_base\_url) | Example: https://vault.example.com:8200 | `string` | n/a | yes |
 
 ## Outputs
@@ -55,5 +61,4 @@ No modules.
 |------|-------------|
 | <a name="output_backend"></a> [backend](#output\_backend) | n/a |
 | <a name="output_certificate"></a> [certificate](#output\_certificate) | n/a |
-| <a name="output_default_issuer"></a> [default\_issuer](#output\_default\_issuer) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
