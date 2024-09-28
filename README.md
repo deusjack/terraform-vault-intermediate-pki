@@ -1,4 +1,4 @@
-# module-vault-intermediate-pki
+# terraform-vault-intermediate-pki
 
 Terraform module to create intermediate PKI on Hashicorp Vault
 
@@ -11,7 +11,7 @@ Terraform module to create intermediate PKI on Hashicorp Vault
   * Root PKI with imported CA and set as default
 
 # Terradocs
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -61,4 +61,4 @@ No modules.
 |------|-------------|
 | <a name="output_backend"></a> [backend](#output\_backend) | n/a |
 | <a name="output_certificate"></a> [certificate](#output\_certificate) | n/a |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
